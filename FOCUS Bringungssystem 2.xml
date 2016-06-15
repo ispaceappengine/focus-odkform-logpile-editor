@@ -1,0 +1,245 @@
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa">
+  <h:head>
+    <h:title>FOCUS Bringungssystem 2 - Vorpolter</h:title>
+    <model>
+      <instance>
+        <data id="focusBS2">
+          <meta>
+            <instanceID/>
+          </meta>
+		  <starttime/>
+          <deviceid/>
+		  <position/>
+          <id/>
+          <gedinge/>
+          <bezeichnung/>
+          <abnehmer/>
+          <festmeter/>
+          <lkw/>
+          <image/>
+		  <endtime/>
+        </data>
+      </instance>
+      <itext>
+        <translation lang="Deutsch">
+		  <text id="/data/starttime:label">
+            <value>Start Time</value>
+          </text>
+          <text id="/data/deviceid:label">
+            <value>Device ID</value>
+          </text>
+		  <text id="/data/position:label">
+            <value>Position</value>
+          </text>
+		  <text id="/data/position:hint">
+            <value></value>
+          </text>
+          <text id="/data/id:label">
+            <value>ID</value>
+          </text>
+          <text id="/data/id:hint">
+            <value></value>
+          </text>
+          <text id="/data/gedinge:label">
+            <value>Gedinge</value>
+          </text>
+          <text id="/data/gedinge:hint">
+            <value></value>
+          </text>
+          <text id="/data/bezeichnung:label">
+            <value>Bezeichnung</value>
+          </text>
+          <text id="/data/abnehmer:label">
+            <value>Abnehmer</value>
+          </text>
+          <text id="/data/abnehmer:option0">
+            <value>MM</value>
+          </text>
+          <text id="/data/abnehmer:option1">
+            <value>Schaffer</value>
+          </text>
+          <text id="/data/abnehmer:option2">
+            <value>Gratkorn</value>
+          </text>
+          <text id="/data/abnehmer:option3">
+            <value>Bruck</value>
+          </text>
+          <text id="/data/abnehmer:option4">
+            <value>Pöls</value>
+          </text>
+          <text id="/data/festmeter:label">
+            <value>Festmeter</value>
+          </text>
+          <text id="/data/festmeter:option0">
+            <value>5</value>
+          </text>
+          <text id="/data/festmeter:option1">
+            <value>10</value>
+          </text>
+          <text id="/data/festmeter:option2">
+            <value>15</value>
+          </text>
+          <text id="/data/festmeter:option3">
+            <value>20</value>
+          </text>
+          <text id="/data/festmeter:option4">
+            <value>25</value>
+          </text>
+          <text id="/data/festmeter:option5">
+            <value>30</value>
+          </text>
+          <text id="/data/festmeter:option6">
+            <value>35</value>
+          </text>
+          <text id="/data/festmeter:option7">
+            <value>40</value>
+          </text>
+          <text id="/data/festmeter:option8">
+            <value>45</value>
+          </text>
+          <text id="/data/festmeter:option9">
+            <value>50</value>
+          </text>
+          <text id="/data/lkw:label">
+            <value>LKW</value>
+          </text>
+          <text id="/data/lkw:option0">
+            <value>LKW 1</value>
+          </text>
+          <text id="/data/lkw:option1">
+            <value>LKW 2</value>
+          </text>
+          <text id="/data/lkw:option2">
+            <value>LKW 3</value>
+          </text>
+          <text id="/data/lkw:option3">
+            <value>LKW 4</value>
+          </text>
+          <text id="/data/image:label">
+            <value>Image</value>
+          </text>
+		  <text id="/data/endtime:label">
+            <value>End Time</value>
+          </text>
+        </translation>
+      </itext>
+      <bind nodeset="/data/meta/instanceID" type="string" readonly="true()" calculate="concat('uuid:', uuid())"/>
+      <bind nodeset="/data/starttime" type="dateTime" jr:preload="timestamp"  jr:preloadParams="start"/>
+      <bind nodeset="/data/deviceid" type="string" jr:preload="property" jr:preloadParams="deviceid"/>
+	  <bind nodeset="/data/position" type="geopoint"/>
+      <bind nodeset="/data/id" type="string"/>
+      <bind nodeset="/data/gedinge" type="string"/>
+      <bind nodeset="/data/bezeichnung" type="string"/>
+      <bind nodeset="/data/abnehmer" type="select1"/>
+      <bind nodeset="/data/festmeter" type="select1"/>
+      <bind nodeset="/data/lkw" type="select1"/>
+      <bind nodeset="/data/image" type="binary"/>	  
+	  <bind nodeset="/data/endtime" type="dateTime" jr:preload="timestamp" jr:preloadParams="end"/>
+    </model>
+  </h:head>
+  <h:body>
+	<input ref="/data/position">
+      <label ref="jr:itext('/data/position:label')"/>
+      <hint ref="jr:itext('/data/position:hint')"/>
+    </input>
+    <input ref="/data/id">
+      <label ref="jr:itext('/data/id:label')"/>
+      <hint ref="jr:itext('/data/id:hint')"/>
+    </input>
+    <input ref="/data/gedinge">
+      <label ref="jr:itext('/data/gedinge:label')"/>
+      <hint ref="jr:itext('/data/gedinge:hint')"/>
+    </input>
+    <input ref="/data/bezeichnung">
+      <label ref="jr:itext('/data/bezeichnung:label')"/>
+    </input>
+    <select1 ref="/data/abnehmer">
+      <label ref="jr:itext('/data/abnehmer:label')"/>
+      <item>
+        <label ref="jr:itext('/data/abnehmer:option0')"/>
+        <value>mm</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/abnehmer:option1')"/>
+        <value>schaffer</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/abnehmer:option2')"/>
+        <value>gratkorn</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/abnehmer:option3')"/>
+        <value>bruck</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/abnehmer:option4')"/>
+        <value>poels</value>
+      </item>
+    </select1>
+    <select1 ref="/data/festmeter">
+      <label ref="jr:itext('/data/festmeter:label')"/>
+      <item>
+        <label ref="jr:itext('/data/festmeter:option0')"/>
+        <value>5</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/festmeter:option1')"/>
+        <value>10</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/festmeter:option2')"/>
+        <value>15</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/festmeter:option3')"/>
+        <value>20</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/festmeter:option4')"/>
+        <value>25</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/festmeter:option5')"/>
+        <value>30</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/festmeter:option6')"/>
+        <value>35</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/festmeter:option7')"/>
+        <value>40</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/festmeter:option8')"/>
+        <value>45</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/festmeter:option9')"/>
+        <value>50</value>
+      </item>
+    </select1>
+    <select1 ref="/data/lkw">
+      <label ref="jr:itext('/data/lkw:label')"/>
+      <item>
+        <label ref="jr:itext('/data/lkw:option0')"/>
+        <value>lkw1</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/lkw:option1')"/>
+        <value>lkw2</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/lkw:option2')"/>
+        <value>lkw3</value>
+      </item>
+      <item>
+        <label ref="jr:itext('/data/lkw:option3')"/>
+        <value>lkw4</value>
+      </item>
+    </select1>
+    <upload ref="/data/image" mediatype="image/*">
+      <label ref="jr:itext('/data/image:label')"/>
+    </upload>
+  </h:body>
+</h:html>
